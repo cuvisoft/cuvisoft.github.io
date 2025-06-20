@@ -3,711 +3,622 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuvisoft - Engineering the Future with AI + IIoT</title>
+    <title>Cuvisoft - One Platform. Infinite Possibilities.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b); /* Dark blue-grey gradient background */
+            color: #e2e8f0; /* Light text color */
+        }
+        /* Custom scrollbar for a futuristic look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #60a5fa; /* Blue thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6; /* Darker blue on hover */
         }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at top, #1a1a2e 0%, #16213e 40%, #0f0f0f 100%);
+        /* Glassmorphism effect */
+        .glassmorphism {
+            background: rgba(43, 56, 75, 0.2); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            border: 1px solid rgba(226, 232, 240, 0.1); /* Subtle border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
         }
 
-        .circuit-pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background-image: 
-                linear-gradient(90deg, #00ffff 1px, transparent 1px),
-                linear-gradient(#00ffff 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: circuitMove 20s linear infinite;
-        }
-
-        @keyframes circuitMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .floating-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00ffff;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
-        }
-
-        /* Glassmorphism Styles */
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.1);
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #00ffff;
-        }
-
-        /* Main Content */
-        main {
-            margin-top: 80px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        /* Hero section background animation */
+        .hero-bg {
+            background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8), #0f172a);
             position: relative;
-        }
-
-        .hero-content {
-            z-index: 10;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes textGlow {
-            from { filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5)); }
-            to { filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.5)); }
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            color: #000;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 2px solid #00ffff;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #00ffff, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Vision Section */
-        .vision-text {
-            text-align: center;
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-        }
-
-        /* Architecture Showcase */
-        .architecture-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .arch-item {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .arch-item:hover {
-            transform: translateY(-10px);
-            background: rgba(0, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-        }
-
-        .arch-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-
-        /* Key Numbers */
-        .numbers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .number-card {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-        }
-
-        .number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #00ffff;
-            display: block;
-        }
-
-        .number-label {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-top: 0.5rem;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        /* Industries Grid */
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .industry-card {
-            position: relative;
-            height: 200px;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
             overflow: hidden;
         }
 
-        .industry-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
-        }
-
-        .industry-card::before {
+        .hero-bg::before, .hero-bg::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
+            background: radial-gradient(circle, #60a5fa 0%, transparent 70%);
+            animation: pulse 10s infinite alternate;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .industry-card:hover::before {
-            left: 100%;
+        .hero-bg::before {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
         }
 
-        /* Final CTA */
-        .final-cta {
-            text-align: center;
-            padding: 5rem 0;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
-            border-radius: 30px;
-            margin: 3rem 0;
+        .hero-bg::after {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 2s;
         }
 
-        .final-cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.2); opacity: 0.25; }
+            100% { transform: scale(1); opacity: 0.15; }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Scroll animations */
+        /* Animation for section titles (simple fade-in) */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        .fade-in.visible {
+        .fade-in.appear {
             opacity: 1;
             transform: translateY(0);
         }
-    </style>
-</head>
-<body>
-    <div class="bg-animation">
-        <div class="circuit-pattern"></div>
-        <div class="floating-particles"></div>
-    </div>
 
-    <header>
-        <nav>
-            <div class="logo">Cuvisoft</div>
-            <ul class="nav-links">
-                <li><a href="#platform">Platform</a></li>
-                <li><a href="#solutions">Solutions</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+        /* Specific styles for the Venn Diagram */
+        .venn-container {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; /* Aspect ratio 4:3 */
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Engineering the Future with AI + IIoT</h1>
-                    <p>Cuvisoft powers 100+ digital engineering branches, 10,000 IIoT solutions, and 4,500+ SaaS tools to accelerate Industry 5.0.</p>
-                    <div class="cta-buttons">
-                        <a href="#" class="btn btn-primary">Explore Ecosystem</a>
-                        <a href="#" class="btn btn-secondary">Start Building</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        .venn-circle {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.2); /* Blue tint */
+            border: 2px solid #60a5fa; /* Blue border */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
 
-        <!-- Vision Statement -->
-        <section class="vision fade-in">
-            <div class="container">
-                <h2 class="section-title">Our Vision</h2>
-                <div class="vision-text">
-                    "Our mission is to automate, personalize, and humanize every aspect of industrial innovation through a unified software ecosystem."
-                </div>
-            </div>
-        </section>
+        .venn-circle:nth-child(1) { top: 0%; left: 20%; }
+        .venn-circle:nth-child(2) { top: 30%; left: 0%; }
+        .venn-circle:nth-child(3) { top: 30%; left: 40%; }
 
-        <!-- Architecture Showcase -->
-        <section class="architecture fade-in">
-            <div class="container">
-                <h2 class="section-title">Platform Architecture</h2>
-                <div class="architecture-grid">
-                    <div class="arch-item">
-                        <div class="arch-icon">🏗️</div>
-                        <h3>Engineering Suites</h3>
-                        <p>Core, Interdisciplinary, Emerging, and Frontier engineering domains</p>
-                    </div>
-                    <div class="arch-item">
-                        <div class="arch-icon">⚙️</div>
-                        <h3>SaaS Modules</h3>
-                        <p>Modular software components for every industrial need</p>
-                    </div>
-                    <div class="arch-item">
-                        <div class="arch-icon">🔗</div>
-                        <h3>IIoT Integration</h3>
-                        <p>Seamless device connectivity and edge intelligence</p>
-                    </div>
-                    <div class="arch-item">
-                        <div class="arch-icon">🤖</div>
-                        <h3>AI Automation</h3>
-                        <p>Intelligent loops that learn and optimize continuously</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        .venn-circle-text {
+            position: absolute;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #a7f3d0; /* Green highlight for labels */
+            text-shadow: 0 0 5px rgba(167, 243, 208, 0.5);
+            pointer-events: none; /* Allows clicks to pass through to circles if interactive */
+        }
+        .venn-circle-text.text-top { top: 5%; left: 50%; transform: translateX(-50%); }
+        .venn-circle-text.text-left { top: 60%; left: 10%; transform: translateY(-50%); }
+        .venn-circle-text.text-right { top: 60%; right: 10%; transform: translateY(-50%); }
 
-        <!-- Key Numbers -->
-        <section class="numbers fade-in">
-            <div class="container">
-                <h2 class="section-title">By the Numbers</h2>
-                <div class="numbers-grid">
-                    <div class="number-card">
-                        <span class="number">100+</span>
-                        <div class="number-label">Engineering Domains</div>
-                    </div>
-                    <div class="number-card">
-                        <span class="number">10,000+</span>
-                        <div class="number-label">IIoT Applications</div>
-                    </div>
-                    <div class="number-card">
-                        <span class="number">4,500+</span>
-                        <div class="number-label">SaaS Tools</div>
-                    </div>
-                    <div class="number-card">
-                        <span class="number">500M+</span>
-                        <div class="number-label">System Designs</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        /* Ecosystem Map SVG styling */
+        #ecosystem-map .node {
+            fill: #60a5fa;
+            transition: fill 0.3s ease;
+        }
+        #ecosystem-map .node:hover {
+            fill: #3b82f6;
+        }
+        #ecosystem-map .line {
+            stroke: #a7f3d0;
+            stroke-width: 2;
+            opacity: 0.6;
+        }
+        #ecosystem-map text {
+            fill: #e2e8f0;
+            font-size: 10px;
+            user-select: none;
+            pointer-events: none;
+        }
+        #ecosystem-map .glow {
+            filter: drop-shadow(0 0 5px rgba(167, 243, 208, 0.7));
+        }
 
-        <!-- Platform Features -->
-        <section class="features fade-in">
-            <div class="container">
-                <h2 class="section-title">Platform Features</h2>
-                <div class="features-grid">
-                    <div class="glass-card">
-                        <h3>🔧 Modular Suite Builder</h3>
-                        <p>Create custom engineering solutions with drag-and-drop simplicity</p>
-                    </div>
-                    <div class="glass-card">
-                        <h3>🔌 Plug-and-Play Engines</h3>
-                        <p>Instantly integrate any tool or system into your workflow</p>
-                    </div>
-                    <div class="glass-card">
-                        <h3>🧠 AI + Edge Intelligence</h3>
-                        <p>Machine learning that adapts to your specific industrial needs</p>
-                    </div>
-                    <div class="glass-card">
-                        <h3>🔄 Digital Twin Integration</h3>
-                        <p>Real-time synchronization between physical and digital worlds</p>
-                    </div>
-                    <div class="glass-card">
-                        <h3>🌐 Fully Open + API First</h3>
-                        <p>Complete interoperability with existing systems and tools</p>
-                    </div>
-                    <div class="glass-card">
-                        <h3>📊 Cognitive Analytics</h3>
-                        <p>Advanced insights that predict and prevent before problems occur</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Cuvisoft -->
-        <section class="why-cuvisoft fade-in">
-            <div class="container">
-                <h2 class="section-title">Why Cuvisoft?</h2>
-                <div class="features-grid">
-                    <div class="glass-card">
-                        <h3>🚀 Empowers Everyone</h3>
-                        <p>Engineers, industries, researchers, and creators - all in one ecosystem</p>
-                    </div>
-                    <div class="glass-card">
-                        <h3>📈 Built for Scale</h3>
-                        <p>From startups to smart nations - grows with your ambitions</p>
-                    </div>
-                    <div class="glass-card">
-                        <h3>🔮 Future-Ready</h3>
-                        <p>Human-centric, cognitive, and adaptive by design</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Industries -->
-        <section class="industries fade-in">
-            <div class="container">
-                <h2 class="section-title">Industries We Transform</h2>
-                <div class="industries-grid">
-                    <div class="industry-card">
-                        <span>🏭 Smart Manufacturing</span>
-                    </div>
-                    <div class="industry-card">
-                        <span>✈️ Aerospace</span>
-                    </div>
-                    <div class="industry-card">
-                        <span>🤖 Robotics</span>
-                    </div>
-                    <div class="industry-card">
-                        <span>⚡ Energy</span>
-                    </div>
-                    <div class="industry-card">
-                        <span>🏥 Healthcare</span>
-                    </div>
-                    <div class="industry-card">
-                        <span>🏗️ Construction</span>
-                    </div>
-                    <div class="industry-card">
-                        <span>🚗 Automotive</span>
-                    </div>
-                    <div class="industry-card">
-                        <span>🌍 Smart Cities</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final CTA -->
-        <section class="fade-in">
-            <div class="container">
-                <div class="final-cta">
-                    <h2>Join Cuvisoft. Build the future of industry.</h2>
-                    <div class="cta-buttons">
-                        <a href="#" class="btn btn-primary">Create Your Suite</a>
-                        <a href="#" class="btn btn-secondary">Explore Solutions</a>
-                        <a href="#" class="btn btn-secondary">Become a Partner</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        // Floating particles animation
-        function createParticles() {
-            const particlesContainer = document.querySelector('.floating-particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                particlesContainer.appendChild(particle);
+        /* Responsive adjustments for icons */
+        .icon-size {
+            width: 3rem; /* Default for larger screens */
+            height: 3rem;
+        }
+        @media (max-width: 768px) {
+            .icon-size {
+                width: 2.5rem; /* Smaller for mobile */
+                height: 2.5rem;
             }
         }
 
-        // Scroll animations
-        function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
+        /* Dark Mode */
+        .dark {
+            background: linear-gradient(135deg, #000000, #1a202c);
+            color: #cbd5e1;
         }
-
-        // Number animation
-        function animateNumbers() {
-            const numbers = document.querySelectorAll('.number');
-            numbers.forEach(number => {
-                const target = parseInt(number.textContent.replace(/[^\d]/g, ''));
-                const suffix = number.textContent.replace(/[\d]/g, '');
-                let current = 0;
-                const increment = target / 50;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    number.textContent = Math.floor(current).toLocaleString() + suffix;
-                }, 50);
-            });
+        .dark .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
+        .dark .hero-bg {
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.8), #000000);
+        }
+        .dark .hero-bg::before, .dark .hero-bg::after {
+            background: radial-gradient(circle, #60a5fa 0%, transparent 70%);
+        }
+        .dark .venn-circle {
+            background: rgba(96, 165, 250, 0.1);
+            border: 2px solid #3b82f6;
+        }
+        .dark .venn-circle-text {
+            color: #6ee7b7;
+            text-shadow: 0 0 5px rgba(110, 231, 183, 0.5);
+        }
+        .dark #ecosystem-map .node {
+            fill: #93c5fd;
+        }
+        .dark #ecosystem-map .line {
+            stroke: #6ee7b7;
+        }
+        .dark #ecosystem-map text {
+            fill: #cbd5e1;
+        }
+        .dark #ecosystem-map .glow {
+            filter: drop-shadow(0 0 5px rgba(110, 231, 183, 0.7));
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden transition-colors duration-300">
+    <!-- Navbar (Optional: if needed, placeholder for future) -->
+    <nav class="p-6 flex justify-between items-center z-50 relative">
+        <div class="text-3xl font-extrabold text-white">Cuvisoft</div>
+        <div class="flex items-center space-x-4">
+            <button id="theme-toggle" class="p-2 rounded-full glassmorphism text-white hover:bg-gray-700 transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+        </div>
+    </nav>
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- 1. Hero Section -->
+    <section class="hero-bg relative h-screen flex items-center justify-center text-center px-4 py-20 overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 animate-pulse">
+                One Platform.<br class="sm:hidden"> Infinite Possibilities.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Engineering. SaaS. IIoT. Unified into a single intelligent ecosystem for Industry 5.0.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#platform" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 glassmorphism">
+                    Explore Platform
+                </a>
+                <a href="#contact" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 glassmorphism">
+                    Request Demo
+                </a>
+                <a href="#join" class="bg-transparent border border-blue-400 text-blue-300 hover:bg-blue-700 hover:text-white font-semibold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 glassmorphism">
+                    Join Ecosystem
+                </a>
+            </div>
+        </div>
+    </section>
 
-        // Initialize
+    <!-- 2. What is Cuvisoft? -->
+    <section id="what-is-cuvisoft" class="py-20 px-4 md:px-8 bg-gray-900 glassmorphism rounded-3xl mx-auto max-w-6xl -mt-20 relative z-20 shadow-lg fade-in">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white mb-4">What is Cuvisoft?</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                Cuvisoft is the leading futuristic technology platform designed to power innovation
+                across diverse industrial landscapes. We seamlessly integrate cutting-edge Engineering
+                Suites, robust SaaS Engines, and resilient IIoT Infrastructure, providing an all-in-one
+                ecosystem that fosters scalability, intelligence, and human-centric automation for
+                Industry 5.0.
+            </p>
+        </div>
+        <div class="venn-container">
+            <div class="venn-circle venn-circle-1" style="mix-blend-mode: screen; left: 20%; top: 0%;">
+                Cuvisoft Engineering Suite
+            </div>
+            <div class="venn-circle venn-circle-2" style="mix-blend-mode: screen; left: 0%; top: 30%;">
+                Cuvisoft SaaS Engines
+            </div>
+            <div class="venn-circle venn-circle-3" style="mix-blend-mode: screen; left: 40%; top: 30%;">
+                Cuvisoft IIoT Core
+            </div>
+            <!-- Central intersection text -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-2xl font-extrabold" style="text-shadow: 0 0 10px rgba(255,255,255,0.7);">
+                <p>Industry 5.0</p>
+                <p class="text-base text-gray-300">Intelligence & Automation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Platform Pillars -->
+    <section id="platform" class="py-20 px-4 md:px-8 text-center fade-in">
+        <h2 class="text-4xl font-bold text-white mb-12">Our Platform Pillars</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="glassmorphism p-8 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex justify-center mb-6">
+                    <i data-lucide="wrench" class="text-blue-400 icon-size glow"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Engineering Automation</h3>
+                <p class="text-gray-300">Modular suites across 117+ engineering branches, enhancing design, simulation, and deployment.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex justify-center mb-6">
+                    <i data-lucide="rocket" class="text-purple-400 icon-size glow"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Intelligent SaaS</h3>
+                <p class="text-gray-300">Build, connect, and scale 4500+ low-code SaaS apps with integrated AI and analytics.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex justify-center mb-6">
+                    <i data-lucide="globe" class="text-green-400 icon-size glow"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Industrial IoT</h3>
+                <p class="text-gray-300">Connect 10K+ edge devices with real-time intelligence for unparalleled operational visibility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Use Cases by Industry -->
+    <section id="use-cases" class="py-20 px-4 md:px-8 text-center fade-in">
+        <h2 class="text-4xl font-bold text-white mb-12">Use Cases by Industry</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Manufacturing -->
+            <div class="glassmorphism p-6 rounded-2xl text-left transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex items-center mb-4">
+                    <i data-lucide="factory" class="text-orange-400 icon-size mr-4 glow"></i>
+                    <h3 class="text-2xl font-bold text-white">Manufacturing</h3>
+                </div>
+                <p class="text-gray-300 mb-3">Optimize production lines and predict maintenance needs.</p>
+                <p class="text-blue-300 text-sm">Example: Predictive Maintenance Module</p>
+            </div>
+            <!-- Energy -->
+            <div class="glassmorphism p-6 rounded-2xl text-left transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex items-center mb-4">
+                    <i data-lucide="lightbulb" class="text-yellow-400 icon-size mr-4 glow"></i>
+                    <h3 class="text-2xl font-bold text-white">Energy</h3>
+                </div>
+                <p class="text-gray-300 mb-3">Enhance grid efficiency and renewable energy integration.</p>
+                <p class="text-blue-300 text-sm">Example: Smart Grid Optimization</p>
+            </div>
+            <!-- Healthcare -->
+            <div class="glassmorphism p-6 rounded-2xl text-left transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex items-center mb-4">
+                    <i data-lucide="heart-pulse" class="text-red-400 icon-size mr-4 glow"></i>
+                    <h3 class="text-2xl font-bold text-white">Healthcare</h3>
+                </div>
+                <p class="text-gray-300 mb-3">Enable remote patient monitoring and intelligent diagnostics.</p>
+                <p class="text-blue-300 text-sm">Example: Telehealth Integration Suite</p>
+            </div>
+            <!-- Smart Cities -->
+            <div class="glassmorphism p-6 rounded-2xl text-left transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex items-center mb-4">
+                    <i data-lucide="building-2" class="text-teal-400 icon-size mr-4 glow"></i>
+                    <h3 class="text-2xl font-bold text-white">Smart Cities</h3>
+                </div>
+                <p class="text-gray-300 mb-3">Intelligent traffic management and urban infrastructure.</p>
+                <p class="text-blue-300 text-sm">Example: Urban Traffic Flow Analyzer</p>
+            </div>
+            <!-- Aerospace -->
+            <div class="glassmorphism p-6 rounded-2xl text-left transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex items-center mb-4">
+                    <i data-lucide="plane" class="text-indigo-400 icon-size mr-4 glow"></i>
+                    <h3 class="text-2xl font-bold text-white">Aerospace</h3>
+                </div>
+                <p class="text-gray-300 mb-3">Advanced material design and flight system optimization.</p>
+                <p class="text-blue-300 text-sm">Example: Aerodynamic Simulation Module</p>
+            </div>
+            <!-- Robotics -->
+            <div class="glassmorphism p-6 rounded-2xl text-left transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="flex items-center mb-4">
+                    <i data-lucide="armchair" class="text-pink-400 icon-size mr-4 glow"></i> <!-- Using armchair as a placeholder for robotics -->
+                    <h3 class="text-2xl font-bold text-white">Robotics</h3>
+                </div>
+                <p class="text-gray-300 mb-3">Develop intelligent automation and collaborative robots.</p>
+                <p class="text-blue-300 text-sm">Example: Human-Robot Interaction Toolkit</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Live Ecosystem Map (Stylized SVG) -->
+    <section id="ecosystem-map-section" class="py-20 px-4 md:px-8 text-center fade-in">
+        <h2 class="text-4xl font-bold text-white mb-12">Live Ecosystem Map</h2>
+        <div class="glassmorphism p-8 rounded-2xl max-w-5xl mx-auto flex justify-center items-center">
+            <svg id="ecosystem-map" viewBox="0 0 800 400" class="w-full h-auto">
+                <!-- Nodes -->
+                <circle class="node glow" cx="100" cy="200" r="20" />
+                <text x="100" y="200" dy="5" text-anchor="middle">IIoT Node 1</text>
+
+                <circle class="node glow" cx="250" cy="100" r="20" />
+                <text x="250" y="100" dy="5" text-anchor="middle">SaaS App A</text>
+
+                <circle class="node glow" cx="250" cy="300" r="20" />
+                <text x="250" y="300" dy="5" text-anchor="middle">SaaS App B</text>
+
+                <circle class="node glow" cx="400" cy="200" r="20" />
+                <text x="400" y="200" dy="5" text-anchor="middle">Engineering Suite</text>
+
+                <circle class="node glow" cx="550" cy="100" r="20" />
+                <text x="550" y="100" dy="5" text-anchor="middle">IIoT Node 2</text>
+
+                <circle class="node glow" cx="550" cy="300" r="20" />
+                <text x="550" y="300" dy="5" text-anchor="middle">IIoT Node 3</text>
+
+                <circle class="node glow" cx="700" cy="200" r="20" />
+                <text x="700" y="200" dy="5" text-anchor="middle">AI Layer</text>
+
+                <!-- Lines (Connections) -->
+                <line class="line" x1="100" y1="200" x2="250" y2="100" />
+                <line class="line" x1="100" y1="200" x2="250" y2="300" />
+                <line class="line" x1="250" y1="100" x2="400" y2="200" />
+                <line class="line" x1="250" y1="300" x2="400" y2="200" />
+                <line class="line" x1="400" y1="200" x2="550" y2="100" />
+                <line class="line" x1="400" y1="200" x2="550" y2="300" />
+                <line class="line" x1="550" y1="100" x2="700" y2="200" />
+                <line class="line" x1="550" y1="300" x2="700" y2="200" />
+
+                <!-- Text labels for types (optional, can be inferred from node labels) -->
+                <text x="100" y="170" dy="5" text-anchor="middle" font-weight="bold" fill="#60a5fa">Devices</text>
+                <text x="250" y="70" dy="5" text-anchor="middle" font-weight="bold" fill="#8b5cf6">SaaS</text>
+                <text x="400" y="170" dy="5" text-anchor="middle" font-weight="bold" fill="#f97316">Engineering</text>
+                <text x="550" y="70" dy="5" text-anchor="middle" font-weight="bold" fill="#10b981">Devices</text>
+                <text x="700" y="170" dy="5" text-anchor="middle" font-weight="bold" fill="#ef4444">AI</text>
+
+            </svg>
+        </div>
+        <p class="text-gray-400 mt-6 max-w-2xl mx-auto">
+            An illustrative overview of actively connected IIoT nodes, running SaaS applications, and ongoing engineering workflows within the Cuvisoft ecosystem.
+        </p>
+    </section>
+
+    <!-- 6. Innovation Spotlight -->
+    <section id="innovation" class="py-20 px-4 md:px-8 text-center fade-in">
+        <h2 class="text-4xl font-bold text-white mb-12">Innovation Spotlight</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="glassmorphism p-8 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <i data-lucide="atom" class="text-cyan-400 icon-size mb-4 glow"></i>
+                <h3 class="text-2xl font-bold text-white mb-3">Quantum Engineering</h3>
+                <p class="text-gray-300">Pioneering quantum-safe algorithms and quantum computing integrations for complex simulations.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <i data-lucide="circuit-board" class="text-lime-400 icon-size mb-4 glow"></i>
+                <h3 class="text-2xl font-bold text-white mb-3">AI-Designed Circuits</h3>
+                <p class="text-gray-300">Utilizing generative AI to rapidly design and optimize electronic circuits for performance and efficiency.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <i data-lucide="factory" class="text-rose-400 icon-size mb-4 glow"></i>
+                <h3 class="text-2xl font-bold text-white mb-3">Autonomous Factories</h3>
+                <p class="text-gray-300">Developing self-optimizing, fully autonomous manufacturing facilities powered by Cuvisoft AI.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Cuvisoft Modules & Marketplace -->
+    <section id="marketplace" class="py-20 px-4 md:px-8 text-center fade-in">
+        <h2 class="text-4xl font-bold text-white mb-12">Modules & Marketplace</h2>
+        <div class="glassmorphism p-8 rounded-2xl max-w-4xl mx-auto">
+            <p class="text-lg text-gray-300 mb-8">
+                Explore our extensive marketplace of pre-built modules and integrations.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-white font-semibold">
+                <div class="p-6 rounded-lg bg-blue-800 bg-opacity-30 border border-blue-600">
+                    <p class="text-4xl font-bold mb-2">117+</p>
+                    <p class="text-gray-300">Engineering Branch Suites</p>
+                </div>
+                <div class="p-6 rounded-lg bg-purple-800 bg-opacity-30 border border-purple-600">
+                    <p class="text-4xl font-bold mb-2">4500+</p>
+                    <p class="text-gray-300">SaaS Tools</p>
+                </div>
+                <div class="p-6 rounded-lg bg-green-800 bg-opacity-30 border border-green-600">
+                    <p class="text-4xl font-bold mb-2">10,000+</p>
+                    <p class="text-gray-300">IIoT Integrations</p>
+                </div>
+            </div>
+            <button class="mt-10 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105">
+                Browse Marketplace
+            </button>
+        </div>
+    </section>
+
+    <!-- 8. Ecosystem Integration Architecture -->
+    <section id="architecture" class="py-20 px-4 md:px-8 text-center fade-in">
+        <h2 class="text-4xl font-bold text-white mb-12">Ecosystem Integration Architecture</h2>
+        <div class="glassmorphism p-8 rounded-2xl max-w-5xl mx-auto">
+            <p class="text-lg text-gray-300 mb-8">
+                The foundational structure enabling seamless data flow and intelligence across all layers.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8 text-white text-xl font-semibold">
+                <div class="flex flex-col items-center">
+                    <i data-lucide="settings" class="text-blue-400 icon-size mb-2 glow"></i>
+                    <p>Engineering</p>
+                </div>
+                <div class="text-gray-400 text-3xl font-light hidden md:block">&harr;</div>
+                <div class="text-gray-400 text-3xl font-light md:hidden">&darr;</div>
+
+                <div class="flex flex-col items-center">
+                    <i data-lucide="cloud" class="text-purple-400 icon-size mb-2 glow"></i>
+                    <p>SaaS Engines</p>
+                </div>
+                <div class="text-gray-400 text-3xl font-light hidden md:block">&harr;</div>
+                <div class="text-gray-400 text-3xl font-light md:hidden">&darr;</div>
+
+                <div class="flex flex-col items-center">
+                    <i data-lucide="hard-drive" class="text-green-400 icon-size mb-2 glow"></i>
+                    <p>IIoT Devices</p>
+                </div>
+                <div class="text-gray-400 text-3xl font-light hidden md:block">&harr;</div>
+                <div class="text-gray-400 text-3xl font-light md:hidden">&darr;</div>
+
+                <div class="flex flex-col items-center">
+                    <i data-lucide="brain" class="text-red-400 icon-size mb-2 glow"></i>
+                    <p>AI Layer</p>
+                </div>
+            </div>
+            <p class="text-gray-400 text-sm mt-8">
+                (This graphic illustrates the bidirectional flow and interconnectedness of Cuvisoft's core components.)
+            </p>
+        </div>
+    </section>
+
+    <!-- 9. Join the Movement -->
+    <section id="join" class="py-20 px-4 md:px-8 text-center fade-in">
+        <h2 class="text-4xl font-bold text-white mb-12">Join the Movement</h2>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10">
+            Be a part of the Cuvisoft revolution. Whether you're a developer, partner, or innovator,
+            there's a place for you in our growing ecosystem.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="glassmorphism p-6 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <i data-lucide="users" class="text-yellow-400 icon-size mb-4 glow"></i>
+                <h3 class="text-2xl font-bold text-white mb-3">Developer Community</h3>
+                <p class="text-gray-300">Connect with fellow innovators, share ideas, and build the future.</p>
+            </div>
+            <div class="glassmorphism p-6 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <i data-lucide="github" class="text-white icon-size mb-4 glow"></i>
+                <h3 class="text-2xl font-bold text-white mb-3">Open Source Contributions</h3>
+                <p class="text-gray-300">Contribute to our core technologies and expand the Cuvisoft platform.</p>
+            </div>
+            <div class="glassmorphism p-6 rounded-2xl transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <i data-lucide="handshake" class="text-teal-400 icon-size mb-4 glow"></i>
+                <h3 class="text-2xl font-bold text-white mb-3">Enterprise Partners</h3>
+                <p class="text-gray-300">Collaborate with us to deliver bespoke solutions for industry leaders.</p>
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mt-12">
+            <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 glassmorphism">
+                Start Building
+            </a>
+            <a href="#" class="bg-transparent border border-gray-400 text-gray-300 hover:bg-gray-700 hover:text-white font-semibold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 glassmorphism">
+                View Documentation
+            </a>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer id="contact" class="bg-gray-950 py-12 px-4 md:px-8 text-gray-400 text-center fade-in">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-left md:text-center">
+                <h3 class="text-white text-2xl font-bold mb-4">Cuvisoft</h3>
+                <p class="text-sm">Powering Industry 5.0 with unified Engineering, SaaS, and IIoT solutions.</p>
+            </div>
+            <div class="text-left md:text-center">
+                <h4 class="text-white text-lg font-semibold mb-3">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Docs</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Pricing</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Blog</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Contact</a></li>
+                </ul>
+            </div>
+            <div class="text-left md:text-center">
+                <h4 class="text-white text-lg font-semibold mb-3">Connect With Us</h4>
+                <div class="flex justify-start md:justify-center space-x-4">
+                    <a href="#" class="hover:text-white transition-colors duration-200">
+                        <i data-lucide="twitter" class="icon-size-sm"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors duration-200">
+                        <i data-lucide="linkedin" class="icon-size-sm"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors duration-200">
+                        <i data-lucide="github" class="icon-size-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 border-t border-gray-800 pt-8">
+            <p class="text-xs">&copy; 2025 Cuvisoft. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons CDN Script moved to end of body -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide-icons@latest"></script>
+    <script>
+        // Ensure Lucide icons are created after the DOM is fully loaded and Lucide script is available
         document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            handleScrollAnimations();
-            
-            // Trigger number animation when numbers section is visible
-            const numbersSection = document.querySelector('.numbers');
-            const observer = new IntersectionObserver((entries) => {
+            // Check if lucide object is defined before calling createIcons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                // Fallback or error logging if lucide is still not defined
+                console.error("Lucide icons library not loaded.");
+            }
+
+            // Scroll reveal animation for sections
+            const sections = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        animateNumbers();
-                        observer.unobserve(entry.target);
+                        entry.target.classList.add('appear');
+                        observer.unobserve(entry.target); // Stop observing once it appears
                     }
                 });
+            }, {
+                threshold: 0.1, // Trigger when 10% of the section is visible
+                rootMargin: '0px 0px -50px 0px' // Offset to trigger a bit earlier
             });
-            observer.observe(numbersSection);
-        });
 
-        // Handle scroll events
-        window.addEventListener('scroll', handleScrollAnimations);
-
-        // Add hover effects for buttons
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
+            sections.forEach(section => {
+                observer.observe(section);
             });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+
+            // Dark/Light Mode Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+
+            // Check for saved theme preference or default to light
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlElement.classList.add('dark');
+                themeToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+            } else {
+                htmlElement.classList.remove('dark');
+                themeToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (htmlElement.classList.contains('dark')) {
+                    htmlElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                    themeToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+                } else {
+                    htmlElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                    themeToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+                }
             });
         });
     </script>
